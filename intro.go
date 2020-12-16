@@ -9,6 +9,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/jainSamkit/golang-design-patterns/interfaces"
+
 	"github.com/jainSamkit/golang-design-patterns/utils"
 
 	"github.com/jainSamkit/golang-design-patterns/structs"
@@ -36,4 +38,10 @@ func main() {
 	utils.SpeakAnimal(doggy)
 	utils.SpeakAnimal(kitty)
 
+	bale := interfaces.NewBatman()
+	if utils.CheckISLiving(bale) {
+		fmt.Printf("Its a living character\n")
+	} else {
+		fmt.Printf("Its a non living character\n")
+	}
 }
