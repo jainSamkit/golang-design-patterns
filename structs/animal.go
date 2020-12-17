@@ -2,12 +2,17 @@ package structs
 
 import (
 	"fmt"
+
+	"github.com/jainSamkit/golang-design-patterns/interfaces"
 )
 
 type Animal struct {
 	name   string
 	weight int
 	sound  string
+
+	//strategy pattern.Also provide the flying type
+	flyingType interfaces.Flys
 }
 
 func (animal *Animal) SetName(name string) {
@@ -37,6 +42,10 @@ func (animal *Animal) SetWeight(weight int) {
 	}
 }
 
-func (animal *Animal) ChangeObjectName(dog *DogAnimal) {
-	dog.SetName("Fido1")
+func (animal *Animal) SetFlyingType(flyingtype interfaces.Flys) {
+	animal.flyingType = flyingtype
+}
+
+func (animal *Animal) TrytoFly() string {
+	return animal.flyingType.Fly()
 }
